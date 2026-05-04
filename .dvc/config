@@ -1,0 +1,5 @@
+[core]
+    remote = azureremote
+['remote "azureremote"']
+    url = azure://churn-model/dvc-store
+    account_name = mlopschurnbadri019
