@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - azure-mlops-cicd
+    
+permissions:
+  contents: write
 
 jobs:
   train-and-deploy:
