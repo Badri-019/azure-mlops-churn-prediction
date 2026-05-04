@@ -1,0 +1,21 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: churn-predictor
+  namespace: churn-model
+  labels:
+    azure.workload.identity/use: "true"
+spec:
+  predictor:
+    serviceAccountName: churn-sa
+    model:
+      modelFormat:
+        name: sklearn
+      storageUri: "https://mlopschurnbadri019.blob.core.windows.net/churn-model/kserve-model"
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "512Mi"
+        limits:
+          cpu: "1"
+          memory: "1Gi"
